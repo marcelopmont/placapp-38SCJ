@@ -21,23 +21,65 @@ class GameScoreActivity: AppCompatActivity() {
         gameScoreHomeTeamName.text = intent.getStringExtra(TEAM_HOME_NAME)
         gameScoreAwayTeamName.text = intent.getStringExtra(TEAM_AWAY_NAME)
 
-        gameScoreHomeIncrease.setOnClickListener { 
+        //Home
+        gameScoreHomeIncreaseOne.setOnClickListener {
             homeTeamScore++
             updateScore()
         }
-        
-        gameScoreHomeDecrease.setOnClickListener { 
-            if (homeTeamScore > 0) homeTeamScore--
+
+        gameScoreHomeIncreaseTwo.setOnClickListener {
+            homeTeamScore+=2
+            updateScore()
+        }
+
+        gameScoreHomeIncreaseThree.setOnClickListener {
+            homeTeamScore+=3
+            updateScore()
+        }
+
+        gameScoreHomeDecreaseOne.setOnClickListener {
+            homeTeamScore--
             updateScore()
         }
         
-        gameScoreAwayIncrease.setOnClickListener {  
+        gameScoreHomeDecreaseTwo.setOnClickListener {
+            homeTeamScore-=2
+            updateScore()
+        }
+
+        gameScoreHomeDecreaseThree.setOnClickListener {
+            homeTeamScore-=3
+            updateScore()
+        }
+
+        // Away
+        gameScoreAwayIncreaseOne.setOnClickListener {
             awayTeamScore++
             updateScore()
         }
+
+        gameScoreAwayIncreaseTwo.setOnClickListener {
+            awayTeamScore+=2
+            updateScore()
+        }
+
+        gameScoreAwayIncreaseThree.setOnClickListener {
+            awayTeamScore+=3
+            updateScore()
+        }
+
+        gameScoreAwayDecreaseOne.setOnClickListener {
+            awayTeamScore--
+            updateScore()
+        }
+
+        gameScoreAwayDecreaseTwo.setOnClickListener {
+            awayTeamScore-=2
+            updateScore()
+        }
         
-        gameScoreAwayDecrease.setOnClickListener { 
-            if (awayTeamScore > 0) awayTeamScore--
+        gameScoreAwayDecreaseThree.setOnClickListener {
+            awayTeamScore-=3
             updateScore()
         }
 
@@ -47,6 +89,9 @@ class GameScoreActivity: AppCompatActivity() {
     }
     
     private fun updateScore() {
+        if (homeTeamScore < 0) homeTeamScore = 0;
+        if (awayTeamScore < 0) awayTeamScore = 0;
+
         gameScoreHomeTeamScore.text = String.format("%02d", homeTeamScore)
         gameScoreAwayTeamScore.text = String.format("%02d", awayTeamScore)
     }

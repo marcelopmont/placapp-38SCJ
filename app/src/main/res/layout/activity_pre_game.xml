@@ -8,6 +8,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/preGameToolbar"
+        android:background="@color/textPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="@string/preGameHomeTeamLabel"
+        android:textColor="@color/textPrimary"
         app:layout_constraintEnd_toStartOf="@id/preGameGuideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/preGameHomeTeamInput"
@@ -38,6 +40,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
         android:inputType="textCapWords"
+        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toEndOf="@id/preGameGuideline"
         app:layout_constraintTop_toBottomOf="@id/preGameToolbar"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -49,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="@string/preGameAwayTeamLabel"
+        android:textColor="@color/textPrimary"
         app:layout_constraintEnd_toStartOf="@id/preGameGuideline"
         app:layout_constraintTop_toBottomOf="@id/preGameHomeTeamLabel"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +66,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
         android:inputType="textCapWords"
+        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toEndOf="@id/preGameGuideline"
         app:layout_constraintTop_toBottomOf="@id/preGameHomeTeamInput"
         app:layout_constraintEnd_toEndOf="parent"/>

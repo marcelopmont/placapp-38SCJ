@@ -8,20 +8,81 @@
     <!-- Home team -->
     <TextView
         android:id="@+id/gameScoreHomeTeamName"
+        android:textColor="@color/textPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncrease"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncreaseTwo"
         />
-    
+
+    <TextView
+        android:id="@+id/gameScoreHomeIncreaseOneText"
+        android:text="+1"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncreaseOne"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeIncreaseOne"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeIncreaseOne"
+        />
+
     <ImageView
-        android:id="@+id/gameScoreHomeIncrease"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="15dp"
-        android:src="@android:drawable/arrow_up_float"
+        android:id="@+id/gameScoreHomeIncreaseOne"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
+        />
+
+    <TextView
+        android:id="@+id/gameScoreHomeIncreaseTwoText"
+        android:text="+2"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncreaseTwo"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeIncreaseTwo"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeIncreaseTwo"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreHomeIncreaseTwo"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
+        />
+
+    <TextView
+        android:id="@+id/gameScoreHomeIncreaseTwoThree"
+        android:text="+3"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncreaseThree"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeIncreaseThree"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeIncreaseThree"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreHomeIncreaseThree"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball"
         app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
@@ -32,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00"
+        android:textColor="@color/textPrimary"
         android:textSize="100sp"
         app:layout_constraintEnd_toStartOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,44 +101,166 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
+    <TextView
+        android:id="@+id/gameScoreHomeDecreaseOneText"
+        android:text="-1"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseOne"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseOne"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseOne"
+        />
+
     <ImageView
-        android:id="@+id/gameScoreHomeDecrease"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="15dp"
-        android:src="@android:drawable/arrow_down_float"
+        android:id="@+id/gameScoreHomeDecreaseOne"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball"
         app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore"
         />
-    
+
+    <TextView
+        android:id="@+id/gameScoreHomeDecreaseTwoText"
+        android:text="-2"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseTwo"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseTwo"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseTwo"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreHomeDecreaseTwo"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore"
+        />
+
+    <TextView
+        android:id="@+id/gameScoreHomeDecreaseThreeText"
+        android:text="-3"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseThree"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseThree"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseThree"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreHomeDecreaseThree"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball"
+        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore"
+        />
+
     <!-- Away team -->
     <TextView
         android:id="@+id/gameScoreAwayTeamName"
+        android:textColor="@color/textPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncrease"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncreaseTwo"
         />
-    
+
+    <TextView
+        android:id="@+id/gameScoreAwayIncreaseOneText"
+        android:text="+1"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncreaseOne"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayIncreaseOne"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayIncreaseOne"
+        />
+
     <ImageView
-        android:id="@+id/gameScoreAwayIncrease"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="15dp"
-        android:src="@android:drawable/arrow_up_float"
+        android:id="@+id/gameScoreAwayIncreaseOne"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball_away"
         app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
         />
-    
+
+    <TextView
+        android:id="@+id/gameScoreAwayIncreaseTwoText"
+        android:text="+2"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncreaseTwo"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayIncreaseTwo"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayIncreaseTwo"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreAwayIncreaseTwo"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball_away"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
+        />
+
+    <TextView
+        android:id="@+id/gameScoreAwayIncreaseTwoThree"
+        android:text="+3"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncreaseThree"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayIncreaseThree"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayIncreaseThree"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreAwayIncreaseThree"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball_away"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
+        />
+
     <TextView
         android:id="@+id/gameScoreAwayTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00"
+        android:textColor="@color/textPrimary"
         android:textSize="100sp"
         app:layout_constraintStart_toEndOf="@id/gameScoreHomeTeamScore"
         app:layout_constraintTop_toTopOf="parent"
@@ -84,12 +268,73 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
+    <TextView
+        android:id="@+id/gameScoreAwayDecreaseOneText"
+        android:text="-1"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseOne"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseOne"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseOne"
+        />
+
     <ImageView
-        android:id="@+id/gameScoreAwayDecrease"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="15dp"
-        android:src="@android:drawable/arrow_down_float"
+        android:id="@+id/gameScoreAwayDecreaseOne"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball_away"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore"
+        />
+
+
+    <TextView
+        android:id="@+id/gameScoreAwayDecreaseTwoText"
+        android:text="-2"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseTwo"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseTwo"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseTwo"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreAwayDecreaseTwo"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball_away"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore"
+        />
+
+    <TextView
+        android:id="@+id/gameScoreAwayDecreaseThreeText"
+        android:text="-3"
+        android:textColor="@color/textPrimary"
+        android:textSize="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseThree"
+        app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseThree"
+        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseThree"
+        />
+
+    <ImageView
+        android:id="@+id/gameScoreAwayDecreaseThree"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="95dp"
+        android:padding="2dp"
+        android:src="@drawable/basketball_ball_away"
         app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
         app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore"
@@ -108,10 +353,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:cornerRadius="100dp"
         />
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
