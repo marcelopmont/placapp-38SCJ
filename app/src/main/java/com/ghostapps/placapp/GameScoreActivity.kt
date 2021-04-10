@@ -10,9 +10,14 @@ class GameScoreActivity: AppCompatActivity() {
         const val TEAM_HOME_NAME = "home_team_name"
         const val TEAM_AWAY_NAME = "away_team_name"
     }
-    
-    var homeTeamScore = 0
-    var awayTeamScore = 0
+
+    var basketsOfOneHome = 0
+    var basketsOfTwoHome = 0
+    var basketsOfThreeHome = 0
+
+    var basketsOfOneAway = 0
+    var basketsOfTwoAway = 0
+    var basketsOfThreeAway = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,64 +28,76 @@ class GameScoreActivity: AppCompatActivity() {
 
         //Home
         gameScoreHomeIncreaseOne.setOnClickListener {
-            homeTeamScore++
+            basketsOfOneHome++
             updateScore()
         }
 
         gameScoreHomeIncreaseTwo.setOnClickListener {
-            homeTeamScore+=2
+            basketsOfTwoHome++
             updateScore()
         }
 
         gameScoreHomeIncreaseThree.setOnClickListener {
-            homeTeamScore+=3
+            basketsOfThreeHome++
             updateScore()
         }
 
         gameScoreHomeDecreaseOne.setOnClickListener {
-            homeTeamScore--
-            updateScore()
+            if (basketsOfOneHome > 0) {
+                basketsOfOneHome--
+                updateScore()
+            }
         }
         
         gameScoreHomeDecreaseTwo.setOnClickListener {
-            homeTeamScore-=2
-            updateScore()
+            if (basketsOfTwoHome > 0) {
+                basketsOfTwoHome--
+                updateScore()
+            }
         }
 
         gameScoreHomeDecreaseThree.setOnClickListener {
-            homeTeamScore-=3
-            updateScore()
+            if (basketsOfThreeHome > 0) {
+                basketsOfThreeHome--
+                updateScore()
+            }
         }
 
         // Away
         gameScoreAwayIncreaseOne.setOnClickListener {
-            awayTeamScore++
+            basketsOfOneAway++
             updateScore()
         }
 
         gameScoreAwayIncreaseTwo.setOnClickListener {
-            awayTeamScore+=2
+            basketsOfTwoAway++
             updateScore()
         }
 
         gameScoreAwayIncreaseThree.setOnClickListener {
-            awayTeamScore+=3
+            basketsOfThreeAway++
             updateScore()
         }
 
         gameScoreAwayDecreaseOne.setOnClickListener {
-            awayTeamScore--
-            updateScore()
+            if (basketsOfOneAway > 0) {
+                basketsOfOneAway--
+                updateScore()
+            }
         }
 
         gameScoreAwayDecreaseTwo.setOnClickListener {
-            awayTeamScore-=2
-            updateScore()
+            if (basketsOfTwoAway > 0) {
+                basketsOfTwoAway--
+                updateScore()
+            }
         }
         
         gameScoreAwayDecreaseThree.setOnClickListener {
-            awayTeamScore-=3
-            updateScore()
+            if (basketsOfThreeAway > 0) {
+                basketsOfThreeAway--
+                updateScore()
+            }
         }
 
         gameScoreExitButton.setOnClickListener {
@@ -89,11 +106,15 @@ class GameScoreActivity: AppCompatActivity() {
     }
     
     private fun updateScore() {
-        if (homeTeamScore < 0) homeTeamScore = 0;
-        if (awayTeamScore < 0) awayTeamScore = 0;
+        gameScoreHomeTeamScore.text = String.format("%02d", basketsOfOneHome + basketsOfTwoHome * 2 + basketsOfThreeHome * 3)
+        gameScoreAwayTeamScore.text = String.format("%02d", basketsOfOneAway + basketsOfTwoAway * 2 + basketsOfThreeAway * 3)
 
-        gameScoreHomeTeamScore.text = String.format("%02d", homeTeamScore)
-        gameScoreAwayTeamScore.text = String.format("%02d", awayTeamScore)
+        numberOfBasketsOneHomeCount.text = String.format("%02d", basketsOfOneHome)
+        numberOfBasketsTwoHomeCount.text = String.format("%02d", basketsOfTwoHome)
+        numberOfBasketsThreeHomeCount.text = String.format("%02d", basketsOfThreeHome)
+
+        numberOfBasketsOneAwayCount.text = String.format("%02d", basketsOfOneAway)
+        numberOfBasketsTwoAwayCount.text = String.format("%02d", basketsOfTwoAway)
+        numberOfBasketsThreeAwayCount.text = String.format("%02d", basketsOfThreeAway)
     }
-
 }
