@@ -11,9 +11,10 @@ abstract class BaseViewModel: ViewModel(), Observable {
     private var mCallbacks: PropertyChangeRegistry? = null
 
     override fun addOnPropertyChangedCallback(callback: OnPropertyChangedCallback) {
-        if (mCallbacks != null) {
-            mCallbacks!!.add(callback)
+        if (mCallbacks == null) {
+            mCallbacks = PropertyChangeRegistry()
         }
+        mCallbacks!!.add(callback)
     }
 
     override fun removeOnPropertyChangedCallback(callback: OnPropertyChangedCallback) {
