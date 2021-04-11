@@ -18,17 +18,13 @@ abstract class BaseViewModel: ViewModel(), Observable {
     }
 
     override fun removeOnPropertyChangedCallback(callback: OnPropertyChangedCallback) {
-        if (mCallbacks != null) {
-            mCallbacks!!.remove(callback)
-        }
+        mCallbacks?.remove(callback) ?: return
     }
 
     /**
      * Notifies listeners that all properties of this instance have changed.
      */
     fun notifyChange() {
-        if (mCallbacks != null) {
-            mCallbacks!!.notifyCallbacks(this, 0, null)
-        }
+        mCallbacks?.notifyCallbacks(this, 0, null) ?: return
     }
 }
