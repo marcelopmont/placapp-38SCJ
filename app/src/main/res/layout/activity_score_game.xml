@@ -1,422 +1,429 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBackGround"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Home team -->
-    <TextView
-        android:id="@+id/gameScoreHomeTeamName"
-        android:textColor="@color/colorHomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncreaseTwo"
-        />
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/gameScoreHomeIncreaseOne"
-        android:text="+1"
-        android:textColor="@color/colorHomeText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
-        />
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ghostapps.placapp.viewModel.gameScore.GameScoreViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/gameScoreHomeIncreaseTwo"
-        android:text="+2"
-        android:textColor="@color/colorHomeText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackGround">
 
-    <TextView
-        android:id="@+id/gameScoreHomeIncreaseThree"
-        android:text="+3"
-        android:textColor="@color/colorHomeText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
-        />
+        <!-- Home team -->
+        <TextView
+            android:id="@+id/gameScoreHomeTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:textColor="@color/colorHomeText"
+            android:text="@={viewModel.homeTeamName}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreHomeIncreaseTwo"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/gameScoreHomeIncreaseOne"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="95dp"
+            android:text="+1"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreHomeIncreaseOne()}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore" />
+
+        <TextView
+            android:id="@+id/gameScoreHomeIncreaseTwo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+2"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreHomeIncreaseTwo()}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore" />
+
+        <TextView
+            android:id="@+id/gameScoreHomeIncreaseThree"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="95dp"
+            android:text="+3"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreHomeIncreaseThree()}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore" />
 
 
-    <TextView
-        android:id="@+id/gameScoreHomeTeamScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00"
-        android:textColor="@color/colorHomeText"
-        android:textSize="80sp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginRight="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/gameScoreHomeTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="80dp"
+            android:text="@={viewModel.formattedHomeTeamScore}"
+            android:textColor="@color/colorHomeText"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/gameScoreHomeDecreaseOne"
-        android:text="-1"
-        android:textColor="@color/colorHomeText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreHomeDecreaseOne"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="95dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreHomeDecreaseOne()}"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreHomeDecreaseTwo"
-        android:text="-2"
-        android:textColor="@color/colorHomeText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreHomeDecreaseTwo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-2"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreHomeDecreaseTwo()}"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreHomeDecreaseThree"
-        android:text="-3"
-        android:textColor="@color/colorHomeText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreHomeDecreaseThree"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="95dp"
+            android:text="-3"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreHomeDecreaseThree()}"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreHomeTeamScore" />
 
-    <!-- Away team -->
-    <TextView
-        android:id="@+id/gameScoreAwayTeamName"
-        android:textColor="@color/colorAwayText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncreaseTwo"
-        />
+        <!-- Away team -->
+        <TextView
+            android:id="@+id/gameScoreAwayTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="@={viewModel.awayTeamName}"
+            android:textColor="@color/colorAwayText"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreAwayIncreaseTwo"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/gameScoreAwayIncreaseOne"
-        android:text="+1"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayIncreaseOne"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="95dp"
+            android:text="+1"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreAwayIncreaseOne()}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreAwayIncreaseTwo"
-        android:text="+2"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayIncreaseTwo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+2"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreAwayIncreaseTwo()}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreAwayIncreaseThree"
-        android:text="+3"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayIncreaseThree"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="95dp"
+            android:text="+3"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreAwayIncreaseThree()}"
+            app:layout_constraintBottom_toTopOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreAwayTeamScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00"
-        android:textColor="@color/colorAwayText"
-        android:textSize="80sp"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintStart_toEndOf="@id/gameScoreHomeTeamScore"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="@={viewModel.formattedAwayTeamScore}"
+            android:textColor="@color/colorAwayText"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gameScoreHomeTeamScore"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/gameScoreAwayDecreaseOne"
-        android:text="-1"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayDecreaseOne"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="95dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreAwayDecreaseOne()}"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreAwayDecreaseTwo"
-        android:text="-2"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayDecreaseTwo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-2"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreAwayDecreaseTwo()}"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore" />
 
-    <TextView
-        android:id="@+id/gameScoreAwayDecreaseThree"
-        android:text="-3"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="95dp"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore"
-        />
+        <TextView
+            android:id="@+id/gameScoreAwayDecreaseThree"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="95dp"
+            android:text="-3"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="23dp"
+            android:onClick="@{_ -> viewModel.onScoreAwayDecreaseThree()}"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayTeamScore"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreAwayTeamScore" />
 
-    <!-- Number of baskets -->
-    <TextView
-        android:id="@+id/numberOfBasketsOneHome"
-        android:text="1"
-        android:textColor="@color/colorHomeText"
-        android:textSize="15dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/basketpoint"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseOne"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseOne"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseOne"
-        />
+        <!-- Number of baskets -->
+        <TextView
+            android:id="@+id/numberOfBasketsOneHome"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/basketpoint"
+            android:paddingLeft="6dp"
+            android:paddingTop="2dp"
+            android:text="1"
+            android:textColor="@color/colorHomeText"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseOne"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseOne"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseOne" />
 
-    <TextView
-        android:id="@+id/numberOfBasketsOneHomeCount"
-        android:text="00"
-        android:textAlignment="center"
-        android:textColor="@color/colorHomeText"
-        android:textSize="20dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/numberOfBasketsOneHome"
-        app:layout_constraintEnd_toEndOf="@id/numberOfBasketsOneHome"
-        app:layout_constraintTop_toBottomOf="@id/numberOfBasketsOneHome"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsOneHomeCount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="@={viewModel.formattedNumberOfBasketsOneHome}"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/numberOfBasketsOneHome"
+            app:layout_constraintStart_toStartOf="@id/numberOfBasketsOneHome"
+            app:layout_constraintTop_toBottomOf="@id/numberOfBasketsOneHome"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/numberOfBasketsTwoHome"
-        android:text="2"
-        android:textColor="@color/colorHomeText"
-        android:textSize="15dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/basketpoint"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseTwo"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseTwo"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseTwo"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsTwoHome"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/basketpoint"
+            android:paddingLeft="6dp"
+            android:paddingTop="2dp"
+            android:text="2"
+            android:textColor="@color/colorHomeText"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseTwo"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseTwo"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseTwo" />
 
-    <TextView
-        android:id="@+id/numberOfBasketsTwoHomeCount"
-        android:text="00"
-        android:textAlignment="center"
-        android:textColor="@color/colorHomeText"
-        android:textSize="20dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/numberOfBasketsTwoHome"
-        app:layout_constraintEnd_toEndOf="@id/numberOfBasketsTwoHome"
-        app:layout_constraintTop_toBottomOf="@id/numberOfBasketsTwoHome"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsTwoHomeCount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="@={viewModel.formattedNumberOfBasketsTwoHome}"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/numberOfBasketsTwoHome"
+            app:layout_constraintStart_toStartOf="@id/numberOfBasketsTwoHome"
+            app:layout_constraintTop_toBottomOf="@id/numberOfBasketsTwoHome"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/numberOfBasketsThreeHome"
-        android:text="3"
-        android:textColor="@color/colorHomeText"
-        android:textSize="15dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/basketpoint"
-        app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseThree"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseThree"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseThree"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsThreeHome"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/basketpoint"
+            android:paddingLeft="6dp"
+            android:paddingTop="2dp"
+            android:text="3"
+            android:textColor="@color/colorHomeText"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreHomeDecreaseThree"
+            app:layout_constraintStart_toStartOf="@id/gameScoreHomeDecreaseThree"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreHomeDecreaseThree" />
 
-    <TextView
-        android:id="@+id/numberOfBasketsThreeHomeCount"
-        android:text="00"
-        android:textAlignment="center"
-        android:textColor="@color/colorHomeText"
-        android:textSize="20dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/numberOfBasketsThreeHome"
-        app:layout_constraintEnd_toEndOf="@id/numberOfBasketsThreeHome"
-        app:layout_constraintTop_toBottomOf="@id/numberOfBasketsThreeHome"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsThreeHomeCount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="@={viewModel.formattedNumberOfBasketsThreeHome}"
+            android:textAlignment="center"
+            android:textColor="@color/colorHomeText"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/numberOfBasketsThreeHome"
+            app:layout_constraintStart_toStartOf="@id/numberOfBasketsThreeHome"
+            app:layout_constraintTop_toBottomOf="@id/numberOfBasketsThreeHome"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/numberOfBasketsOneAway"
-        android:text="1"
-        android:textColor="@color/colorAwayText"
-        android:textSize="15dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/basketpoint"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseOne"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseOne"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseOne"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsOneAway"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/basketpoint"
+            android:paddingLeft="6dp"
+            android:paddingTop="2dp"
+            android:text="1"
+            android:textColor="@color/colorAwayText"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseOne"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseOne"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseOne" />
 
-    <TextView
-        android:id="@+id/numberOfBasketsOneAwayCount"
-        android:text="00"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/numberOfBasketsOneAway"
-        app:layout_constraintEnd_toEndOf="@id/numberOfBasketsOneAway"
-        app:layout_constraintTop_toBottomOf="@id/numberOfBasketsOneAway"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsOneAwayCount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="@={viewModel.formattedNumberOfBasketsOneAway}"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/numberOfBasketsOneAway"
+            app:layout_constraintStart_toStartOf="@id/numberOfBasketsOneAway"
+            app:layout_constraintTop_toBottomOf="@id/numberOfBasketsOneAway"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/numberOfBasketsTwoAway"
-        android:text="2"
-        android:textColor="@color/colorAwayText"
-        android:textSize="15dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/basketpoint"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseTwo"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseTwo"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseTwo"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsTwoAway"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/basketpoint"
+            android:paddingLeft="6dp"
+            android:paddingTop="2dp"
+            android:text="2"
+            android:textColor="@color/colorAwayText"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseTwo"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseTwo"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseTwo" />
 
-    <TextView
-        android:id="@+id/numberOfBasketsTwoAwayCount"
-        android:text="00"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/numberOfBasketsTwoAway"
-        app:layout_constraintEnd_toEndOf="@id/numberOfBasketsTwoAway"
-        app:layout_constraintTop_toBottomOf="@id/numberOfBasketsTwoAway"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsTwoAwayCount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="@={viewModel.formattedNumberOfBasketsTwoAway}"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/numberOfBasketsTwoAway"
+            app:layout_constraintStart_toStartOf="@id/numberOfBasketsTwoAway"
+            app:layout_constraintTop_toBottomOf="@id/numberOfBasketsTwoAway"
+            tools:text="00"/>
 
-    <TextView
-        android:id="@+id/numberOfBasketsThreeAway"
-        android:text="3"
-        android:textColor="@color/colorAwayText"
-        android:textSize="15dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/basketpoint"
-        app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseThree"
-        app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseThree"
-        app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseThree"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsThreeAway"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/basketpoint"
+            android:paddingLeft="6dp"
+            android:paddingTop="2dp"
+            android:text="3"
+            android:textColor="@color/colorAwayText"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@id/gameScoreAwayDecreaseThree"
+            app:layout_constraintStart_toStartOf="@id/gameScoreAwayDecreaseThree"
+            app:layout_constraintTop_toBottomOf="@id/gameScoreAwayDecreaseThree" />
 
-    <TextView
-        android:id="@+id/numberOfBasketsThreeAwayCount"
-        android:text="00"
-        android:textColor="@color/colorAwayText"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/numberOfBasketsThreeAway"
-        app:layout_constraintEnd_toEndOf="@id/numberOfBasketsThreeAway"
-        app:layout_constraintTop_toBottomOf="@id/numberOfBasketsThreeAway"
-        />
+        <TextView
+            android:id="@+id/numberOfBasketsThreeAwayCount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="@={viewModel.formattedNumberOfBasketsThreeAway}"
+            android:textAlignment="center"
+            android:textColor="@color/colorAwayText"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/numberOfBasketsThreeAway"
+            app:layout_constraintStart_toStartOf="@id/numberOfBasketsThreeAway"
+            app:layout_constraintTop_toBottomOf="@id/numberOfBasketsThreeAway"
+            tools:text="00"/>
 
-    <!-- Exit button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/gameScoreExitButton"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="@string/scoreGameExit"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:cornerRadius="100dp"
-        />
+        <!-- Exit button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gameScoreExitButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/scoreGameExit"
+            android:textColor="@android:color/white"
+            android:onClick="@{_ -> viewModel.onExitPressed()}"
+            app:cornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
