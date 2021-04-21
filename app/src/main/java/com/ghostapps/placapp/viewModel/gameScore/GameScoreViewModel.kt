@@ -8,7 +8,7 @@ import java.util.*
 class GameScoreViewModel(
     private val contract: GameScoreContract,
     private val insertRegister: InsertRegister
-): BaseViewModel() {
+) : BaseViewModel() {
 
     var homeTeamName = ""
     var awayTeamName = ""
@@ -46,19 +46,17 @@ class GameScoreViewModel(
 
     fun onExitPressed() {
         Thread {
-            val success = insertRegister.execute(RecordModel(
-                homeTeamName = homeTeamName,
-                homeTeamScore = homeTeamScore,
-                awayTeamName = awayTeamName,
-                awayTeamScore = awayTeamScore,
-                date = Date().time
-            ))
+            val success = insertRegister.execute(
+                RecordModel(
+                    homeTeamName = homeTeamName,
+                    homeTeamScore = homeTeamScore,
+                    awayTeamName = awayTeamName,
+                    awayTeamScore = awayTeamScore,
+                    date = Date().time
+                )
+            )
 
-            if (success) {
-                contract.onExitPressed()
-            } else {
-                contract.onInsertRegisterFails()
-            }
+            contract.onExitPressed()
 
         }.start()
     }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "323919151327",
+    "project_id": "scorapp-c2aae",
+    "storage_bucket": "scorapp-c2aae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323919151327:android:fcd2f74c2f672f05aae96a",
+        "android_client_info": {
+          "package_name": "com.ghostapps.placapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323919151327-h2vhdetqi603minq1ktr0v5gqc7u9u3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ghostapps.placapp",
+            "certificate_hash": "ec5ae8e91458f87e1a7af035e787ac6ea8344cfa"
+          }
+        },
+        {
+          "client_id": "323919151327-tkefuugev5p5nm47f7mcmg9klas3bgqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbskhmqmZ6qRHrcBiAAIAFeSBXBeAzV0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323919151327-tkefuugev5p5nm47f7mcmg9klas3bgqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
